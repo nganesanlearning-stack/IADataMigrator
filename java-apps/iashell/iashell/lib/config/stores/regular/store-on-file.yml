@@ -1,0 +1,20 @@
+store:
+  name: ${store.name}
+  type: filesystem
+  status: online
+  fileSystemFolder: default-folder
+  storeType: regular
+
+fileSystemFolder:
+  name: default-folder
+  parentSpaceRootFolder: ${application.name}-space-root-folder
+  subPath: stores/${store.name}
+
+spaceRootFolder:
+  name: ${application.name}-space-root-folder
+  fileSystemRoot: defaultFileSystemRoot
+
+# References to the administration resources
+fileSystemRoot:
+  name: defaultFileSystemRoot
+  configure: use_existing

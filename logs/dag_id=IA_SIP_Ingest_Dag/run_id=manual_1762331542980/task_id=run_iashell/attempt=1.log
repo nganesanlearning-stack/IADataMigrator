@@ -1,0 +1,18 @@
+{"timestamp":"2025-11-05T08:32:25.770835","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-11-05T08:32:25.786247","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/IA_SIP_Ingest_Dag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-11-05T08:32:25.991032Z","level":"info","event":"[DEBUG] Running command: \"/opt/airflow/scripts/iashell/bin/iashell.sh\" script \"/opt/airflow/data/output/install-CreditCardStatementsArchive.iashell\"","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:32:25.995511Z","level":"info","event":"[IAShell STDOUT] checking from IAShell script directly","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:32:25.996089Z","level":"info","event":"[IAShell STDOUT] /opt/java/temurin-21","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:32:25.996686Z","level":"info","event":"[IAShell STDOUT] /opt/maven/bin:/opt/java/temurin-21/bin:/root/bin:/home/airflow/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:32:34.942635Z","level":"info","event":"[IAShell STDOUT] Welcome to OpenText Information Archive 25.2 command line client (c) OpenText Corporation","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:32:34.944497Z","level":"info","event":"[IAShell STDOUT] Type 'help' for a list of commands and options, type 'exit' to leave the shell.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:32:34.945059Z","level":"info","event":"[IAShell STDOUT]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:33:25.898595Z","level":"info","event":"[IAShell STDOUT] Connected to \"http://10.73.91.23:8080/restapi/services\" as sue@iacustomer.com","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:33:26.443247Z","level":"info","event":"[IAShell STDOUT] Start Ingest at [2025-11-05 08:33:25]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:33:26.444358Z","level":"info","event":"[IAShell STDOUT]   There are no SIP files found on provided path: './data/sipzips'. Nothing to receive and ingest.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:33:26.458983Z","level":"info","event":"[IAShell STDOUT] OK","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:33:26.459520Z","level":"info","event":"[IAShell STDOUT] End Ingest at [2025-11-05 08:33:26]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:33:26.460874Z","level":"info","event":"[IAShell STDOUT] Ingest took 0.485 seconds","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:33:26.462236Z","level":"info","event":"[IAShell STDOUT]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-05T08:33:26.766484","level":"info","event":"Done. Returned value was: IAShell completed successfully.","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}
+{"timestamp":"2025-11-05T08:33:26.768327","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('019a5325-461a-7eb3-be1f-dedcc306b20e'), task_id='run_iashell', dag_id='IA_SIP_Ingest_Dag', run_id='manual_1762331542980', try_number=1, map_index=-1, hostname='c488275c2d21', context_carrier={}, task=<Task(_PythonDecoratedOperator): run_iashell>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=1, start_date=datetime.datetime(2025, 11, 5, 8, 32, 25, 369687, tzinfo=TzInfo(UTC)), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None)","logger":"task"}

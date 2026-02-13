@@ -1,0 +1,22 @@
+{"timestamp":"2025-11-06T06:05:58.468569","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-11-06T06:05:58.469466","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/IA_SIP_Ingest_Dag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-11-06T06:05:59.219549Z","level":"info","event":"[DEBUG] Running command: \"/opt/airflow/scripts/iashell/bin/iashell.sh\" script \"/opt/airflow/data/output/install-CreditCardStatementsArchive.iashell\"","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:05:59.220963Z","level":"info","event":"[IAShell STDOUT] checking from IAShell script directly","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:05:59.221788Z","level":"info","event":"[IAShell STDOUT] /opt/java/temurin-21","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:05:59.222378Z","level":"info","event":"[IAShell STDOUT] /opt/maven/bin:/opt/java/temurin-21/bin:/root/bin:/home/airflow/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:06:11.704958Z","level":"info","event":"[IAShell STDOUT] Welcome to OpenText Information Archive 25.2 command line client (c) OpenText Corporation","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:06:11.705769Z","level":"info","event":"[IAShell STDOUT] Type 'help' for a list of commands and options, type 'exit' to leave the shell.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:06:11.707892Z","level":"info","event":"[IAShell STDOUT]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.215591Z","level":"info","event":"[IAShell STDOUT] Connected to \"http://10.73.91.23:8080/restapi/services\" as sue@iacustomer.com","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.227139Z","level":"info","event":"[IAShell STDOUT] Start Ingest at [2025-11-06 06:07:48]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.243374Z","level":"info","event":"[IAShell STDOUT]   Uploading file through gateway: /opt/airflow/data/sipzips/creditcardholding_0-df8c7357-38e9-4685-b12b-7b20c22f0153.zip with size 36.53 KB.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.275457Z","level":"info","event":"[IAShell STDOUT]   [2025-11-06 06:07:53] Uploaded 36.53 KB.   Ingested 'creditcardholding_0-df8c7357-38e9-4685-b12b-7b20c22f0153.zip'. AIP id is '16a33227-e23b-4611-b4da-be87ea25ad7f'. It took 2.596 seconds.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.337328Z","level":"info","event":"[IAShell STDOUT]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.350935Z","level":"info","event":"[IAShell STDOUT]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.368563Z","level":"info","event":"[IAShell STDOUT]   Summary: 1/1 file(s) processed successfully.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.369858Z","level":"info","event":"[IAShell STDOUT] OK","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.374454Z","level":"info","event":"[IAShell STDOUT] End Ingest at [2025-11-06 06:07:53]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.374921Z","level":"info","event":"[IAShell STDOUT] Ingest took 5.339 seconds","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:58.375505Z","level":"info","event":"[IAShell STDOUT]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-11-06T06:07:55.055826","level":"info","event":"Done. Returned value was: IAShell completed successfully.","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}
+{"timestamp":"2025-11-06T06:07:55.057841","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('019a57c5-8e49-7ac4-a6d5-910d4381f17d'), task_id='run_iashell', dag_id='IA_SIP_Ingest_Dag', run_id='manual_1762409156109', try_number=1, map_index=-1, hostname='c488275c2d21', context_carrier={}, task=<Task(_PythonDecoratedOperator): run_iashell>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=1, start_date=datetime.datetime(2025, 11, 6, 6, 5, 57, 773057, tzinfo=TzInfo(UTC)), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None)","logger":"task"}

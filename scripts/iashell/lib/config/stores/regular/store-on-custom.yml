@@ -1,0 +1,19 @@
+store:
+  name: ${store.name}
+  type: custom
+  status: online
+  bucket: ${bucket.name.custom}
+  storeType: regular
+  
+spaceRootObject:
+  name: ${customStorage.name.custom}
+  customStorage: ${customStorage.name.custom}
+
+bucket:
+  name: ${bucket.name.custom}
+  spaceRootObject: ${customStorage.name.custom}
+
+# References to the administration resources
+customStorage:
+  name: ${customStorage.name.custom}
+  configure: use_existing

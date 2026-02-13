@@ -1,0 +1,23 @@
+store:
+  name: ${store.name}
+  type: storagegrid
+  status: online
+  bucket: ${bucket.name.storagegrid}
+  storeType: regular
+
+spaceRootObject:
+  name: ${storageEndPoint.name.storagegrid}
+  storageEndPointCredential: ${storageEndPointCredential.name.storagegrid}
+
+bucket:
+  name: ${bucket.name.storagegrid}
+  spaceRootObject: ${storageEndPoint.name.storagegrid}
+
+# References to the administration resources
+storageEndPoint:
+  name: ${storageEndPoint.name.storagegrid}
+  configure: use_existing
+
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.storagegrid}
+  configure: use_existing

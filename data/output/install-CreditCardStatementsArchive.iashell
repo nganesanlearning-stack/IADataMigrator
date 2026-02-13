@@ -1,0 +1,2 @@
+connect
+ingest applications/CreditCardStatementsArchive --from /opt/airflow/data/sipzips/

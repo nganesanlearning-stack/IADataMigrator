@@ -1,0 +1,32 @@
+# Simplest approach - using available packages only
+FROM apache/airflow:3.0.2
+
+USER root
+
+# Try to install the latest available OpenJDK from package manager
+RUN apt-get update && \
+    apt-get install -y default-jdk maven && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Find and set Java home automatically
+RUN JAVA_HOME_PATH=$(readlink -f /usr/bin/javac | sed "s:bin/javac::") && \
+    echo "export JAVA_HOME=$JAVA_HOME_PATH" >> /etc/environment && \
+    echo "JAVA_HOME found at: $JAVA_HOME_PATH"
+
+# Set environment variables (will be overridden by docker-compose if needed)
+ENV JAVA_HOME=/usr/lib/jvm/default-java
+ENV PATH=$JAVA_HOME/bin:$PATH
+ENV MAVEN_HOME=/usr/share/maven
+
+# Create directories for Java applications
+RUN mkdir -p /opt/airflow/java-apps/{jars,libs,configs,logs} && \
+    chown -R airflow:root /opt/airflow/java-apps && \
+    chmod -R 775 /opt/airflow/java-apps
+
+USER airflow
+
+RUN pip install --no-cache-dir py4j jaydebeapi
+
+# Test installation
+RUN java -version && javac -version && mvn -version

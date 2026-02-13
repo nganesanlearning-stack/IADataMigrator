@@ -1,0 +1,41 @@
+# Commands to run outside PowerShell for Option 1 (Simplified Setup):
+
+# Stop current setup
+docker-compose down
+
+# Build and start simplified setup
+docker-compose -f docker-compose-simple.yaml build --no-cache
+docker-compose -f docker-compose-simple.yaml up -d
+
+# Verify Java 21 installation
+docker-compose -f docker-compose-simple.yaml exec airflow-standalone java -version
+
+# Check Maven
+docker-compose -f docker-compose-simple.yaml exec airflow-standalone mvn -version
+
+# Access Airflow Web UI at: http://localhost:8080
+# Username: admin
+# Password: admin
+
+# Commands to run outside PowerShell for Option 2 (Minimal Multi-Container):
+
+# Stop current setup
+docker-compose down
+
+# Edit docker-compose.yaml to comment out unnecessary services:
+# Comment out these services in docker-compose.yaml:
+# - airflow-dag-processor
+# - airflow-triggerer  
+# - flower
+# - pgadmin
+
+# Then build and start
+docker-compose build --no-cache
+docker-compose up -d airflow-webserver airflow-scheduler airflow-worker postgres redis
+
+# This will start only essential services:
+# - airflow-webserver (Web UI)
+# - airflow-scheduler (Task scheduling)
+# - airflow-worker (Task execution)
+# - postgres (Database)
+# - redis (Message broker)

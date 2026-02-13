@@ -1,0 +1,56 @@
+# Custom Airflow Docker Image with Java Support
+FROM apache/airflow:2.7.3
+
+# Switch to root to install packages
+USER root
+
+# Update package list and install Java 17
+RUN apt-get update && \
+    apt-get install -y \
+    openjdk-17-jdk \
+    wget \
+    curl \
+    unzip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set Java environment variables
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+# Create directories for Java applications
+RUN mkdir -p /opt/airflow/java-apps/{jars,libs,configs,logs} && \
+    chown -R airflow:root /opt/airflow/java-apps && \
+    chmod -R 775 /opt/airflow/java-apps
+
+# Install Maven (optional, for building Java projects)
+RUN wget https://archive.apache.org/dist/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz && \
+    tar -xzf apache-maven-3.9.4-bin.tar.gz -C /opt && \
+    ln -s /opt/apache-maven-3.9.4 /opt/maven && \
+    rm apache-maven-3.9.4-bin.tar.gz
+
+ENV MAVEN_HOME=/opt/maven
+ENV PATH=$MAVEN_HOME/bin:$PATH
+
+# Create JVM options file for Java applications
+RUN echo '-Xms512m' > /opt/airflow/java-apps/configs/jvm.options && \
+    echo '-Xmx2g' >> /opt/airflow/java-apps/configs/jvm.options && \
+    echo '-XX:+UseG1GC' >> /opt/airflow/java-apps/configs/jvm.options && \
+    echo '-XX:MaxGCPauseMillis=200' >> /opt/airflow/java-apps/configs/jvm.options && \
+    echo '-Djava.awt.headless=true' >> /opt/airflow/java-apps/configs/jvm.options && \
+    echo '-Dfile.encoding=UTF-8' >> /opt/airflow/java-apps/configs/jvm.options
+
+# Switch back to airflow user
+USER airflow
+
+# Install additional Python packages for Java integration
+RUN pip install --no-cache-dir \
+    py4j==0.10.9.7 \
+    pyjnius==1.4.2 \
+    jaydebeapi==1.2.3
+
+# Verify Java installation
+RUN java -version && javac -version
+
+# Set working directory
+WORKDIR /opt/airflow

@@ -1,0 +1,23 @@
+store:
+  name: ${store.name}
+  type: azure
+  status: online
+  bucket: ${container.name.azure}
+  storeType: regular
+
+spaceRootObject:
+  name: ${storageEndPoint.name.azure}
+  storageEndPointCredential: ${storageEndPointCredential.name.azure}
+
+bucket:
+  name: ${container.name.azure}
+  spaceRootObject: ${storageEndPoint.name.azure}
+
+# References to the administration resources
+storageEndPoint:
+  name: ${storageEndPoint.name.azure}
+  configure: use_existing
+  
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.azure}
+  configure: use_existing

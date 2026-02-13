@@ -1,0 +1,10 @@
+storageEndPoint:
+  name: ${storageEndPoint.name.azure}
+  url: ${storageEndPoint.url.azure}
+  type: azure
+  proxyUrl: ${storageEndPoint.proxyUrl.azure.proxy:}
+  
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.azure}
+  accessKey: ${storageEndPointCredential.accountName.azure}
+  secretKey: ${storageEndPointCredential.accountKey.azure}

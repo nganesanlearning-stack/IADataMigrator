@@ -1,0 +1,12 @@
+storageEndPoint:
+  name: ${storageEndPoint.name.storagegrid}
+  url: ${storageEndPoint.url.storagegrid}
+  type: storagegrid
+  proxyUrl: ${storageEndPoint.proxyUrl.storagegrid.proxy:}
+
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.storagegrid}
+  accessKey: ${storageEndPointCredential.accessKey.storagegrid}
+  secretKey: ${storageEndPointCredential.secretKey.storagegrid}
+  username: ${storageEndPointCredential.username.storagegrid.proxy:}
+  password: ${storageEndPointCredential.password.storagegrid.proxy:}

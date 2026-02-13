@@ -1,0 +1,11 @@
+archiveCenterEndPoint:
+  name: ${archiveCenterEndPoint.name.ac}
+  hostname: ${archiveCenterEndPoint.hostname.ac}
+  port: ${archiveCenterEndPoint.port.ac}
+  type: ARCHIVECENTER
+  ssl: ${archiveCenterEndPoint.ssl.ac}
+
+archiveCenterEndPointCredential:
+  name: ${archiveCenterEndPointCredential.name.ac}
+  archiveCenterEndPoint: ${archiveCenterEndPoint.name.ac}
+  pemFileContent: ${archiveCenterEndPointCredential.pemFileContent.ac}

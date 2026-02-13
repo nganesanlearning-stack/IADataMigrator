@@ -1,0 +1,23 @@
+store:
+  name: ${store.name.result-store:default-result-store}
+  type: ARCHIVECENTER
+  status: online
+  bucket: ${archive.name.ac}
+  storeType: result
+
+spaceRootObject:
+  name: ${archiveCenterEndPoint.name.ac}
+  archiveCenterEndPointCredential: ${archiveCenterEndPointCredential.name.ac}
+
+bucket:
+  name: ${archive.name.ac}
+  spaceRootObject: ${archiveCenterEndPoint.name.ac}
+  
+# References to the administration resources
+archiveCenterEndPoint:
+  name: ${archiveCenterEndPoint.name.ac}
+  configure: use_existing
+
+archiveCenterEndPointCredential:
+  name: ${archiveCenterEndPointCredential.name.ac}
+  configure: use_existing  

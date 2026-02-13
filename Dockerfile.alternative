@@ -1,0 +1,32 @@
+# Alternative Dockerfile using Eclipse Temurin (more reliable)
+FROM apache/airflow:3.0.2
+
+USER root
+
+# Use Eclipse Temurin JDK 21 (pre-built binaries)
+RUN apt-get update && \
+    apt-get install -y wget && \
+    cd /tmp && \
+    wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.1%2B12/OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz && \
+    tar -xzf OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz && \
+    mv jdk-21.0.1+12 /opt/jdk21 && \
+    rm OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME=/opt/jdk21
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+# Install Maven
+RUN cd /opt && \
+    wget https://downloads.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz && \
+    tar -xzf apache-maven-3.9.4-bin.tar.gz && \
+    ln -s apache-maven-3.9.4 maven && \
+    rm apache-maven-3.9.4-bin.tar.gz
+
+ENV MAVEN_HOME=/opt/maven
+ENV PATH=$MAVEN_HOME/bin:$PATH
+
+USER airflow
+
+RUN pip install --no-cache-dir py4j jaydebeapi

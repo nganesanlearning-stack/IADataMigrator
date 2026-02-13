@@ -1,0 +1,24 @@
+store:
+  name: ${store.name}
+  type: ecs
+  status: online
+  bucket: ${bucket.name.ecs}
+  storeType: regular
+
+spaceRootObject:
+  name: ${storageEndPoint.name.ecs}
+  storageEndPointCredential: ${storageEndPointCredential.name.ecs}
+
+bucket:
+  name: ${bucket.name.ecs}
+  spaceRootObject: ${storageEndPoint.name.ecs}
+  
+storageEndPoint:
+  name: ${storageEndPoint.name.ecs}
+  configure: use_existing
+  
+# References to the administration resources  
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.ecs}
+  configure: use_existing
+  

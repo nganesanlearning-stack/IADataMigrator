@@ -1,0 +1,36 @@
+# Offline Dockerfile using multi-stage build
+FROM eclipse-temurin:21-jdk as jdk-image
+
+FROM apache/airflow:3.0.2
+
+USER root
+
+# Copy JDK from the Temurin image
+COPY --from=jdk-image /opt/java/openjdk /opt/java/temurin-21
+
+# Set Java environment variables
+ENV JAVA_HOME=/opt/java/temurin-21
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+# Install Maven using package manager (if available)
+RUN apt-get update && \
+    apt-get install -y curl ca-certificates && \
+    cd /opt && \
+    curl -L -o maven.tar.gz "https://downloads.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz" && \
+    tar -xzf maven.tar.gz && \
+    ln -s apache-maven-3.9.4 maven && \
+    rm maven.tar.gz && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV MAVEN_HOME=/opt/maven
+ENV PATH=$MAVEN_HOME/bin:$PATH
+
+# Create directories for Java applications
+RUN mkdir -p /opt/airflow/java-apps/{jars,libs,configs,logs} && \
+    chown -R airflow:root /opt/airflow/java-apps && \
+    chmod -R 775 /opt/airflow/java-apps
+
+USER airflow
+
+RUN pip install --no-cache-dir py4j jaydebeapi

@@ -1,0 +1,21 @@
+store:
+  name: ${store.name.confirmation-store:default-confirmation-store}
+  bucket: null
+  fileSystemFolder: default-confirmation-folder
+  storeType: delivery_channel
+
+fileSystemFolder:
+  name: default-confirmation-folder
+  parentSpaceRootFolder: ${application.name}-space-root-folder
+  subPath: stores/${store.name.confirmation-store:default-confirmation-store}
+
+spaceRootFolder:
+  name: ${application.name}-space-root-folder
+  fileSystemRoot: defaultFileSystemRoot
+
+# References to the administration resources
+fileSystemRoot:
+  name: ${fileStorageName:defaultFileSystemRoot}
+  configure: create
+  description: Default FileSystemRoot
+  path: ${fileSystemRoot.path}

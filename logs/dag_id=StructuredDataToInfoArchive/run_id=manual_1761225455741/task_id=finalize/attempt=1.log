@@ -1,0 +1,12 @@
+{"timestamp":"2025-10-23T13:18:07.344654","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-10-23T13:18:07.346172","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/StructuredDataToInfoArchive.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-10-23T13:18:07.706170Z","level":"info","event":"📦 Archived original file: /opt/airflow/data/incomingcsv/PurchaseOrderPartner.csv","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.707212Z","level":"info","event":"🧹 Removed temp file: /opt/airflow/data/incomingcsv/chunk_0.csv","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.713215Z","level":"info","event":"🧹 Removed temp file: /opt/airflow/data/incomingcsv/chunk_1.csv","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.713638Z","level":"info","event":"🧹 Removed temp file: /opt/airflow/data/incomingcsv/chunk_2.csv","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.714137Z","level":"info","event":"🧹 Removed temp file: /opt/airflow/data/incomingcsv/chunk_3.csv","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.714604Z","level":"info","event":"🧹 Removed temp file: /opt/airflow/data/incomingcsv/PurchaseOrderPartner_chunk_0.xml","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.723273Z","level":"info","event":"🧹 Removed temp file: /opt/airflow/data/incomingcsv/PurchaseOrderPartner_chunk_1.xml","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.723843Z","level":"info","event":"🧹 Removed temp file: /opt/airflow/data/incomingcsv/PurchaseOrderPartner_chunk_2.xml","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.724328Z","level":"info","event":"🧹 Removed temp file: /opt/airflow/data/incomingcsv/PurchaseOrderPartner_chunk_3.xml","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-23T13:18:07.613416","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}

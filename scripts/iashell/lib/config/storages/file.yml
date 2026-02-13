@@ -1,0 +1,5 @@
+fileSystemRoot:
+  name: ${fileStorageName:defaultFileSystemRoot}
+  configure: create
+  description: Default FileSystemRoot
+  path: ${fileSystemRoot.path}

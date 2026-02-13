@@ -1,0 +1,47 @@
+<xs:schema elementFormDefault="qualified"
+  targetNamespace="urn:eas-samples:en:xsd:creditcardholding.1.0"
+  version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Records">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element name="Record" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CustomerID" type="xs:string"/>
+              <xs:element name="FirstName" type="xs:string"/>
+              <xs:element name="LastName" type="xs:string"/>
+              <xs:element name="Email" type="xs:string"/>
+              <xs:element name="CreditCardNumber" type="xs:decimal"/>
+              <xs:element name="Attachments">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Attachment">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="mimetype" type="xs:string"/>
+                          <xs:element name="Size" type="xs:decimal"/>
+                          <xs:element name="EASFile" type="xs:string"/>
+                          <xs:element name="checksum" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="encoding" type="xs:string" use="required"/>
+                                  <xs:attribute name="algorithm" type="xs:string" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="FilePath" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

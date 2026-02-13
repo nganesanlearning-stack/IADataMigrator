@@ -1,0 +1,28 @@
+store:
+  name: ${store.name.result-store:default-result-store}
+  type: ${store.type.s3}
+  status: online
+  bucket: ${bucket.name.s3}
+  contentLifetimeAfterRestoration: ${store.contentLifetimeAfterRestoration.glacier}
+  contentRestoreTier: ${store.contentRestoreTier.glacier}
+  contentLifecycleRule:
+    ruleId: ${store.contentLifecycleRule.ruleId.glacier}-${store.name.result-store:default-result-store}
+    preArchivePeriod: ${store.contentLifecycleRule.preArchivePeriod.glacier}
+  storeType: result
+
+spaceRootObject:
+  name: ${storageEndPoint.name.s3}
+  storageEndPointCredential: ${storageEndPointCredential.name.s3}
+
+bucket:
+  name: ${bucket.name.s3}
+  spaceRootObject: ${storageEndPoint.name.s3}
+
+# References to the administration resources
+storageEndPoint:
+  name: ${storageEndPoint.name.s3}
+  configure: use_existing
+
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.s3}
+  configure: use_existing

@@ -1,0 +1,10 @@
+storageEndPoint:
+  name: ${storageEndPoint.name.ecs}
+  url: ${storageEndPoint.url}
+  type: ecs
+  proxyUrl: ${storageEndPoint.proxyUrl.ecs.proxy:}
+
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.ecs}
+  accessKey: ${storageEndPointCredential.accessKey.ecs}
+  secretKey: ${storageEndPointCredential.secretKey.ecs}

@@ -1,0 +1,10 @@
+ssl:
+  trustStore: null
+  trustStorePassword: null
+  trustStoreType: null
+  keyStore: null
+  keyStorePassword: null
+  keyStoreType: null
+connection:
+  gatewayUrl: http://localhost:8080
+  restApiUrl: null

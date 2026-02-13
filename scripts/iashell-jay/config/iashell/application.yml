@@ -1,0 +1,51 @@
+connection:
+  gatewayUrl: http://localhost:8080
+  restApiUrl: null
+  clientSecret: QgwHgF6T2C
+  userName: sue@iacustomer.com
+  userPassword: password
+  tenant: INFOARCHIVE
+defaultSettings:
+  pathToDeclarativeConfigurationDefaultProperties: ../config/iashell/default.properties
+  pathToDownloadDirectory: _downloads
+  sip:
+    sipFormat: sip_zip
+    sipIngestThreads: 1
+    pathToSuccessFolder: _success
+    pathToErrorFolder: _error
+  table:
+    pathToChainOfCustodyFiles: ../config/iashell
+    custodySchemaFileName: chain-of-custody-schema.xml
+    custodyTableFileName: chain-of-custody-table.xml
+    enableIndexBuildInBatch: true
+    enableChainOfCustodyInBatch: false
+    tableIngestThreads: 4
+    simpleTableFilesFilter: .*\.xml
+    tableMetadataFilesFilter: metadata.*\.xml
+    allowedUnstructuredDataRoot: null
+  other:
+    uploadGatewaySocketTimeout: 6000000
+spring:
+  profiles:
+    include:
+    - navigation
+  main:
+    allow-circular-references: true
+webAuth:
+  loginUrl: null
+  logoutUrl: null
+passwordEncryption:
+  enabled: false
+  keyStorePath: null
+  keyStoreType: null
+  keyID: null
+  encryptionAlgorithm: null
+  encryptionMode: null
+  paddingScheme: null
+  securityProvider: null
+  keySize: null
+  gemaltoUserName: null
+  gemaltoClientCertificate: null
+  gemaltoPropertiesFile: null
+  gemaltoGroup: null
+  noPromptStartup: null

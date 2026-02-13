@@ -1,0 +1,20 @@
+store:
+  name: ${store.name}
+  type: smartlock
+  status: online
+  fileSystemFolder: ${application.name}-isilon-folder
+  storeType: regular
+  
+spaceRootFolder:
+  name: ${application.name}-space-root-folder-isilon
+  fileSystemRoot: isilonFileSystemRoot
+
+fileSystemFolder:
+  name: ${application.name}-isilon-folder
+  parentSpaceRootFolder: ${application.name}-space-root-folder-isilon
+  subPath: stores/${store.name}
+
+# References to the administration resources
+fileSystemRoot:
+  name: isilonFileSystemRoot
+  configure: use_existing 

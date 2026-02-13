@@ -1,0 +1,9 @@
+Batch process completed at: Tue Sep 16 14:07:31 UTC 2025
+Original data file: /opt/airflow/java-apps/sample_data.csv
+Files archived:
+total 4
+drwxrwxr-x 1 airflow root 4096 Sep 16 14:07 .
+drwxrwxr-x 1 airflow root 4096 Sep 16 14:07 ..
+-rw-rw-r-- 1 airflow root  112 Sep 16 14:07 processed_data.txt
+-rw-rw-r-- 1 airflow root 1267 Sep 16 14:07 report.html
+-rw-rw-r-- 1 airflow root  132 Sep 16 14:07 summary.txt

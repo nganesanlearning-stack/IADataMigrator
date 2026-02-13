@@ -1,0 +1,4 @@
+{"timestamp":"2025-10-09T05:28:01.867641","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-10-09T05:28:01.868705","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/StructuredDataToInfoArchive.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-10-09T05:28:03.952235Z","level":"info","event":"✅ Chunk 2 exported successfully","chan":"stdout","logger":"task"}
+{"timestamp":"2025-10-09T05:28:03.938422","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}

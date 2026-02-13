@@ -1,0 +1,26 @@
+store:
+  name: ${store.name.result-store:default-result-store}
+  type: GCS
+  status: online
+  bucket: ${bucket.name.gcs}
+  storeType: result
+  storageClass: 
+
+spaceRootObject:
+  name: ${storageEndPoint.name.gcs}
+  storageEndPointCredential: ${storageEndPointCredential.name.gcs}
+
+bucket:
+  name: ${bucket.name.gcs}
+  spaceRootObject: ${storageEndPoint.name.gcs}
+  storageClass:
+  location: 
+
+# References to the administration resources
+storageEndPoint:
+  name: ${storageEndPoint.name.gcs}
+  configure: use_existing
+  
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.gcs}
+  configure: use_existing

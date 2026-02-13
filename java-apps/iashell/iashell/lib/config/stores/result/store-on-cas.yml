@@ -1,0 +1,19 @@
+store:
+  name: ${store.name.result-store:default-result-store}
+  type: cas
+  status: online
+  bucket: bucket-${store.name}-${application.name}
+  storeType: result
+
+spaceRootObject:
+  name: ${contentAddressedStorage.name.cas}
+  contentAddressedStorage: ${contentAddressedStorage.name.cas}
+
+bucket:
+  name: bucket-${store.name}-${application.name}
+  spaceRootObject: ${contentAddressedStorage.name.cas}
+
+# References to the administration resources
+contentAddressedStorage:
+  name: ${contentAddressedStorage.name.cas}
+  configure: use_existing

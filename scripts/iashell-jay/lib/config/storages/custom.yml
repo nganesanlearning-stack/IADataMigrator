@@ -1,0 +1,4 @@
+customStorage:
+  name: ${customStorage.name.custom}
+  description: ${customStorage.description.custom}
+  factoryServiceName: ${customStorage.factoryServiceName}

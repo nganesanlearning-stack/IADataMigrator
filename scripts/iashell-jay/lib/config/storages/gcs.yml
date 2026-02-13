@@ -1,0 +1,11 @@
+storageEndPoint:
+  name: ${storageEndPoint.name.gcs}
+  type: gcs
+  proxyUrl: ${storageEndPoint.proxyUrl.gcs.proxy:}
+  
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.gcs}
+  clientEmailId: ${storageEndPointCredential.clientEmailId.gcs}
+  privateKey: ${storageEndPointCredential.privateKey.gcs}
+  projectId: ${storageEndPointCredential.projectId.gcs}
+

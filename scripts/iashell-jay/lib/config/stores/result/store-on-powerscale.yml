@@ -1,0 +1,20 @@
+store:
+  name: ${store.name.result-store:default-result-store}
+  type: smartlock
+  status: online
+  fileSystemFolder: default-result-folder
+  storeType: result
+
+spaceRootFolder:
+  name: ${application.name}-space-root-folder-isilon
+  fileSystemRoot: isilonFileSystemRoot
+
+fileSystemFolder:
+  name: default-result-folder
+  parentSpaceRootFolder: ${application.name}-space-root-folder-isilon
+  subPath: stores/${store.name.result-store:default-result-store}
+
+# References to the administration resources
+fileSystemRoot:
+  name: isilonFileSystemRoot
+  configure: use_existing 

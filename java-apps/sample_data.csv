@@ -1,0 +1,13 @@
+# Sample Data File
+# Format: ID, Name, Value, Date
+
+001, Product A, 45.99, 2025-08-15
+002, Product B, 29.99, 2025-08-16
+003, Product C, 99.99, 2025-08-16
+004, Product D, 149.99, 2025-08-17
+005, Product E, 19.99, 2025-08-18
+006, Product F, 59.99, 2025-08-19
+007, Product G, 39.99, 2025-08-20
+008, Product H, 89.99, 2025-08-21
+009, Product I, 199.99, 2025-08-22
+010, Product J, 24.99, 2025-08-23

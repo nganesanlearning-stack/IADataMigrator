@@ -1,0 +1,111 @@
+<configuration scan="true">
+
+	<variable name="MAXSIZE" value="10MB" />
+	<variable name="MAX_HISTORY" value="15" />
+	<variable name="SINGLE_DAY_HISTORY" value="1" />
+	<variable name="DATEFORMAT" value="yyyy-MM-dd HH:mm:ss.SSS" />
+	<variable name="MESSAGE_PATTERN" value="%msg%n" />
+	<variable name="SIMPLE_PATTERN" value="%d{${DATEFORMAT}} - ${MESSAGE_PATTERN}" />
+	<variable name="LEVEL_PATTERN"
+		value="%d{${DATEFORMAT}} %-5level - ${MESSAGE_PATTERN}" />
+	<variable name="DEFAULT_PATTERN"
+		value="%d{${DATEFORMAT}} %-5level %-50logger{36} - ${MESSAGE_PATTERN}" />
+	<variable name="THREAD_PATTERN"
+		value="%d{${DATEFORMAT}} %-5level %-50logger{36} [%thread] - ${MESSAGE_PATTERN}" />
+
+	<appender name="CLI-MAIN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logsdir:-logs/iashell}/iashell.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logsdir:-logs/iashell}/archives/iashell.%d.%i.log.gz</fileNamePattern>
+			<maxFileSize>${MAXSIZE}</maxFileSize>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="com.emc.ia.cli.services.passwords.EncodingPatternLayout">
+				<pattern>${DEFAULT_PATTERN}</pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="CLI-ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logsdir:-logs/iashell}/iashell-errors.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logsdir:-logs/iashell}/archives/iashell-errors.%d.%i.log.gz</fileNamePattern>
+			<maxFileSize>${MAXSIZE}</maxFileSize>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+        <encoder
+            class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="com.emc.ia.cli.services.passwords.EncodingPatternLayout">
+                <pattern>${DEFAULT_PATTERN}</pattern>
+            </layout>
+        </encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+	</appender>
+
+	<appender name="CLI-ERRORCONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.err</target>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+		    <layout class="com.emc.ia.cli.services.passwords.EncodingPatternLayout">
+			    <pattern>%d{HH:mm:ss.SSS} %-5level - ${MESSAGE_PATTERN} %ex{0}</pattern>
+			</layout>    
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+	</appender>
+
+	<appender name="CLI-CMD-HISTORY"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logsdir:-logs/iashell}/iashell-history.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logsdir:-logs/iashell}/archives/iashell-history.%d.%i.log.gz</fileNamePattern>
+			<maxFileSize>${MAXSIZE}</maxFileSize>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${MESSAGE_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.hibernate" level="OFF" additivity="false">
+		<appender-ref ref="CLI-MAIN" />
+		<appender-ref ref="CLI-ERROR" />
+	</logger>
+
+	<logger name="org.apache.http.wire" level="OFF" additivity="false">
+		<appender-ref ref="CLI-MAIN" />
+		<appender-ref ref="CLI-ERROR" />
+	</logger>
+
+	<logger name="com.emc.ia.cli.services.historylog.TraceableShell" level="INFO" additivity="false">
+		<appender-ref ref="CLI-CMD-HISTORY" />
+	</logger>
+
+    <logger name="org.jline" additivity="false">
+        <appender-ref ref="CLI-MAIN" />
+        <appender-ref ref="CLI-ERROR" />
+    </logger>
+
+    <logger name="com.ot.infoarchive.decrypt" additivity="false">
+        <appender-ref ref="CLI-MAIN" />
+        <appender-ref ref="CLI-ERROR" />
+    </logger>
+
+    <logger name="com.emc.ia" additivity="false">
+		<appender-ref ref="CLI-MAIN" />
+		<appender-ref ref="CLI-ERROR" />
+        <appender-ref ref="CLI-ERRORCONSOLE" />
+	</logger>
+
+	<root level="WARN">
+		<appender-ref ref="CLI-MAIN" />
+		<appender-ref ref="CLI-ERROR" />
+		<appender-ref ref="CLI-ERRORCONSOLE" />
+	</root>
+
+</configuration>

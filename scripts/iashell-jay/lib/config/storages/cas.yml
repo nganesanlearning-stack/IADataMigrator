@@ -1,0 +1,5 @@
+contentAddressedStorage:
+  name: ${contentAddressedStorage.name.cas}
+  connexionString: ${contentAddressedStorage.casConnexionString.cas}
+  peas:
+    casPeaContent1: ${contentAddressedStorage.peas.casPeaContent1.cas}

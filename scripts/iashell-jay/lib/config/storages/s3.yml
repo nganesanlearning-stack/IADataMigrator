@@ -1,0 +1,12 @@
+storageEndPoint:
+  name: ${storageEndPoint.name.s3}
+  url: ${storageEndPoint.url.s3}
+  type: ${store.type.s3}
+  proxyUrl: ${storageEndPoint.proxyUrl.s3.proxy:}
+
+storageEndPointCredential:
+  name: ${storageEndPointCredential.name.s3}
+  accessKey: ${storageEndPointCredential.accessKey.s3}
+  secretKey: ${storageEndPointCredential.secretKey.s3}
+  username: ${storageEndPointCredential.username.s3.proxy:}
+  password: ${storageEndPointCredential.password.s3.proxy:}

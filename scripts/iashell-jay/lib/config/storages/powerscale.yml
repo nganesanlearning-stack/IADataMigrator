@@ -1,0 +1,5 @@
+fileSystemRoot:
+  name: isilonFileSystemRoot
+  configure: create
+  path: ${fileSystemRoot.path.isilon}
+  type: powerscale
